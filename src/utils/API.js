@@ -1,5 +1,5 @@
 import axios from "axios";
-// This is the api you will be referencing. No need to make changes to this file!
+
 export default {
   // Gets all users
   getUsers: function () {

@@ -2,7 +2,7 @@ import React from "react";
 
 const styles = {
   headerStyle: {
-    background: "#4F0B27",
+    background: "#445c6b",
     borderBottom: "10px solid #70B096",
     color: "white"
   },
@@ -13,12 +13,12 @@ const styles = {
 
 function Header() {
   return (
-    <div class="jumbotron jumbotron-fluid" style={styles.headerStyle}>
-      <div class="container text-center">
-        <h1 style={styles.h1Style} class="display-4">
+    <div className="jumbotron jumbotron-fluid" style={styles.headerStyle}>
+      <div className="container text-center">
+        <h1 style={styles.h1Style} className="display-4">
           Employee Directory
         </h1>
-        <p class="lead">
+        <p className="lead">
           Click on carrots to filter by heading or use the search box to narrow
           your results.
         </p>

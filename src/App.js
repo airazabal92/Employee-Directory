@@ -1,13 +1,13 @@
 import React from "react";
 import "./App.css";
 import Header from "./components/Header";
-import SearchForm from "./components/SearchForm";
+import SearchResultContainer from "./components/SearchResultContainer";
 
 function App() {
   return (
     <div>
       <Header />
-      <SearchForm />
+      <SearchResultContainer />
     </div>
   );
 }
