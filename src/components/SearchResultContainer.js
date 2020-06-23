@@ -14,29 +14,60 @@ const style = {
 class SearchResultContainer extends Component {
   state = {
     search: "",
-    results: []
+    results: [],
+    resultsTotal: []
   };
 
   componentDidMount() {
     this.getEmployeeInfo();
   }
 
+  // Call API to get employee info
   getEmployeeInfo = () => {
     API.getUsers()
       .then((res) => {
         console.log("API CALL", res);
-        this.setState({ results: res.data.results });
+        this.setState({
+          results: res.data.results,
+          resultsTotal: res.data.results
+        });
       })
       .catch((err) => console.log(err));
   };
 
+  // Upon change to the search form, filter resultsTotal and pass it to results
   handleNameSearchFilter = (event) => {
     const name = event.target.name;
     const value = event.target.value;
+    console.log(value);
     this.setState({
-      [name]: value
+      [name]: value,
+      results: this.state.resultsTotal.filter(
+        (elem) =>
+          (
+            elem.name.first.toLowerCase() +
+            " " +
+            elem.name.last.toLowerCase()
+          ).indexOf(value.toLowerCase()) !== -1
+      )
     });
-    // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_filter_list
+  };
+
+  // Upon click of "Name" header, sort in alphabetical order
+  handleNameSort = (event) => {
+    function compare(a, b) {
+      const nameA = a.name.first.toLowerCase();
+      const nameB = b.name.first.toLowerCase();
+
+      let comparison = 0;
+      if (nameA > nameB) {
+        comparison = 1;
+      } else if (nameA < nameB) {
+        comparison = -1;
+      }
+      return comparison;
+    }
+    this.setState({ results: this.state.resultsTotal.sort(compare) });
   };
 
   render() {
@@ -51,7 +82,9 @@ class SearchResultContainer extends Component {
           <thead>
             <tr>
               <th>Image</th>
-              <th>Name</th>
+              <th id="nameSort" onClick={this.handleNameSort}>
+                Name
+              </th>
               <th>Phone</th>
               <th>Email</th>
               <th>DOB</th>

@@ -12,10 +12,6 @@ function EmployeeList(props) {
     employee.formattedDOB = month + "-" + day + "-" + year;
   });
 
-  //   props.results.forEach(function (item) {
-  //     console.log(item);
-  //   });
-
   return (
     <tbody>
       {props.results.map((result) => (
