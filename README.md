@@ -19,7 +19,7 @@ An employee directory created with React. The app lets users filter through the 
 ## Application
 
 To view the deployed application on Heroku, visit:
-<a href="https://budget-offline-online-ai.herokuapp.com/" target="_blank">https://budget-offline-online-ai.herokuapp.com/</a>
+<a href="https://airazabal92.github.io/Employee-Directory/" target="_blank">https://airazabal92.github.io/Employee-Directory/</a>
 
 ## Technologies Used
 
