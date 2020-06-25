@@ -15,7 +15,7 @@ function EmployeeList(props) {
   return (
     <tbody>
       {props.results.map((result) => (
-        <tr key={result.id}>
+        <tr key={result.id.value}>
           <td>
             <img src={result.picture.medium} alt="Employee" />
           </td>
